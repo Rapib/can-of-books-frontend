@@ -23,16 +23,42 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Lab1
-Name of feature: ________________________________
+## Lab11
 
-Estimate of time needed to complete: _____
+-----
+Name of feature: 1. Set up your repositories
 
-Start time: _____
+Estimate of time needed to complete: 30min
 
-Finish time: _____
+Start time: 1300
 
-Actual time needed to complete: _____
+Finish time: 1330_
+
+Actual time needed to complete: 30min
+
+-----
+
+Name of feature: 2. Storage
+
+Estimate of time needed to complete: 120min
+
+Start time: 1330
+
+Finish time: 1330_
+
+Actual time needed to complete: 30min
+
+-----
+
+Name of feature: 3. Book Component
+
+Estimate of time needed to complete: 30min
+
+Start time: 1300
+
+Finish time: 1330_
+
+Actual time needed to complete: 30min
 
 ## Professional Pairing Practice
 
