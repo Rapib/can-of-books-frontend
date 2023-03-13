@@ -6,6 +6,10 @@
 ## Overview
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
 
+## Links
+
+Live (https://booksbooks.netlify.app/)
+
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
@@ -16,6 +20,8 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+03-13-2023 1345 - 1. Set up your repositories
 
 ## Estimates
 <!-- See below -->
@@ -32,9 +38,9 @@ Estimate of time needed to complete: 30min
 
 Start time: 1300
 
-Finish time: 1330_
+Finish time: 1345_
 
-Actual time needed to complete: 30min
+Actual time needed to complete: 45min
 
 -----
 
@@ -42,7 +48,7 @@ Name of feature: 2. Storage
 
 Estimate of time needed to complete: 120min
 
-Start time: 1330
+Start time: 1345
 
 Finish time: 1330_
 
