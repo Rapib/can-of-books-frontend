@@ -50,17 +50,17 @@ Estimate of time needed to complete: 120min
 
 Start time: 1345
 
-Finish time: 1330_
+Finish time: 1445_
 
-Actual time needed to complete: 30min
+Actual time needed to complete: 60min
 
 -----
 
 Name of feature: 3. Book Component
 
-Estimate of time needed to complete: 30min
+Estimate of time needed to complete: 60in
 
-Start time: 1300
+Start time: 1445
 
 Finish time: 1330_
 
