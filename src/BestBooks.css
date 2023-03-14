@@ -1,0 +1,25 @@
+#root {
+  text-align: center;
+
+}
+
+
+h2 {
+  color: brown;
+  font-weight: bold;
+  font-size: 500px;
+}
+
+.btn{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.carousel-caption {
+background-color: rgba(250, 239, 193, 0.8);
+}
+
+.carousel-inner {
+  /* align-items: center; */
+  text-align: center;
+  object-fit: fill;
+}
