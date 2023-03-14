@@ -22,6 +22,10 @@ Live (https://booksbooks.netlify.app/)
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 03-13-2023 1345 - 1. Set up your repositories
+03-13-2023 1445 - 2. Storage
+03-13-2023 1645 - 3. Book Component
+03-14-2023 1445 - 1. Create
+03-14-2023 1445 - 2. Delete
 
 ## Estimates
 <!-- See below -->
@@ -38,9 +42,9 @@ Estimate of time needed to complete: 30min
 
 Start time: 1300
 
-Finish time: 1345_
+Finish time: 1445_
 
-Actual time needed to complete: 45min
+Actual time needed to complete: 1hr45min
 
 -----
 
@@ -48,7 +52,7 @@ Name of feature: 2. Storage
 
 Estimate of time needed to complete: 120min
 
-Start time: 1345
+Start time: 1445
 
 Finish time: 1445_
 
@@ -58,13 +62,38 @@ Actual time needed to complete: 60min
 
 Name of feature: 3. Book Component
 
-Estimate of time needed to complete: 60in
+Estimate of time needed to complete: 60nin
 
 Start time: 1445
 
-Finish time: 1330_
+Finish time: 1645
 
-Actual time needed to complete: 30min
+Actual time needed to complete: 120min
+
+## lab 12
+
+Name of feature: 1. Create
+
+Estimate of time needed to complete: 120min
+
+Start time: 1300
+
+Finish time: 1345_
+
+Actual time needed to complete: 45min
+
+-----
+
+Name of feature: 2. Delete
+
+Estimate of time needed to complete: 120min
+
+Start time: 1345
+
+Finish time: 1445_
+
+Actual time needed to complete: 60min
+
 
 ## Professional Pairing Practice
 

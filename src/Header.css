@@ -1,4 +1,14 @@
-.nav-link {
-  margin-left: 100px;
-margin-right: 100px;
+.navbar-brand {
+  margin-left: 30px;
+
+}
+
+
+.nav-item {
+margin-left: 15px;
+font-size: 20px;
+}
+
+.nav-item:hover {
+  color: white;
 }
