@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 class UpdateBookModal extends React.Component {
+  
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -13,11 +14,11 @@ class UpdateBookModal extends React.Component {
       __v: this.props.book.__v
     }
 
-    this.props.updateBook(catToUpdate);
+    this.props.updateBook(bookToUpdate);
   }
 
   render() {
-
+    console.log(this.props.book.title);
     return (
       <>
       <Modal show={this.props.updateOpenBookFormModal} onHide={this.props.updateCloseBookFormModal}>
@@ -25,20 +26,20 @@ class UpdateBookModal extends React.Component {
             <Modal.Title>Add your book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={this.props.submitBook}>
+            <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="title">
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="Book title" />
+                <Form.Control type="text" placeholder={this.props.book.title} />
               </Form.Group>
               <Form.Group controlId="description">
                 <Form.Label>Description</Form.Label>
-                <Form.Control type="text" placeholder="Book description" />
+                <Form.Control type="text" placeholder={this.props.book.description} />
               </Form.Group>
               <Form.Group controlId="status">
                 <Form.Check type="checkbox" label="Status: In Stock" />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Submit
+                Update Book
               </Button>
             </Form>
           </Modal.Body>

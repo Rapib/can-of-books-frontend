@@ -14,6 +14,7 @@ class BestBooks extends React.Component {
       noBook: true,
       showForm: false,
       showUpdateForm: false,
+      currentBook: {},
     }
   }
 
@@ -85,6 +86,14 @@ class BestBooks extends React.Component {
     }
   }
 
+  openUpdateModal = (i) => {
+    this.setState({
+      showUpdateForm: true,
+      currentBook: i,
+    })
+  }
+
+
   updateBook = async (book) => {
     try {
       let updatedBookFromDB = await axios.put(`${process.env.REACT_APP_SERVER}/books/${book._id}`, book);
@@ -94,10 +103,10 @@ class BestBooks extends React.Component {
           : i;
       });
       this.setState({
-        showUpdateForm: true,
-        books: updatedBooks
+        showUpdateForm: false,
+        books: updatedBooks,
       })
-      
+
     } catch (error) {
       console.log('error msg: ', error.response.data)
     }
@@ -127,7 +136,9 @@ class BestBooks extends React.Component {
       i => {
         return (
 
-          <Carousel.Item key={i._id}>
+          <Carousel.Item
+            key={i._id}
+          >
             <img
               className="book"
               src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Books-book-pages-read-literature-159866.jpg"
@@ -138,14 +149,15 @@ class BestBooks extends React.Component {
               <p>{i.description}</p>
               <p>Status: {i.status ? 'In stock' : 'Out of stock'}</p>
               <Button variant="outline-dark" onClick={() => this.deleteBook(i._id)}>Delete this book</Button>
-              <Button variant="outline-warning" onClick={() => this.updateBook(i)}>Update this book</Button>
+              <Button variant="outline-warning" onClick={() => this.openUpdateModal(i)}>Update this book</Button>
+              
             </Carousel.Caption>
 
           </Carousel.Item>
         )
       }
     );
-    console.log(booksToCarousel);
+    //console.log(booksToCarousel);
 
     return (
 
@@ -173,14 +185,14 @@ class BestBooks extends React.Component {
           <></>
         }
         {this.state.showUpdateForm ?
-          <UpdateBookModal
-            updateBook={this.updateBook}
-            books={this.state.books}
-            updateOpenBookFormModal={this.updateOpenBookFormModal}
-            updateCloseBookFormModal={this.updateCloseBookFormModal}
-          /> :
-          <></>
-        }
+                <UpdateBookModal
+                  updateBook={this.updateBook}
+                  book={this.state.currentBook}
+                  updateOpenBookFormModal={this.updateOpenBookFormModal}
+                  updateCloseBookFormModal={this.updateCloseBookFormModal}
+                /> :
+                <></>
+              }
       </>
 
     )

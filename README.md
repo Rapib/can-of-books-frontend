@@ -102,9 +102,9 @@ Estimate of time needed to complete: 120min
 
 Start time: 1245
 
-Finish time: 1545_
+Finish time: 1445_
 
-Actual time needed to complete: 180min
+Actual time needed to complete: 120min
 
 ## Professional Pairing Practice
 
