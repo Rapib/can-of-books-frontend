@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import BookFromModal from './BookFormModal';
+import UpdateBookModal from './UpdateBookModal';
 import './BestBooks.css'
 import { Carousel, Button } from 'react-bootstrap';
 
@@ -12,7 +13,21 @@ class BestBooks extends React.Component {
       books: [],
       noBook: true,
       showForm: false,
+      showUpdateForm: false,
     }
+  }
+
+  updateOpenBookFormModal = (e) => {
+    e.preventDefault();
+    this.setState({
+      showUpdateForm: true,
+    })
+  }
+
+  updateCloseBookFormModal = (e) => {
+    this.setState({
+      showUpdateForm: false,
+    })
   }
 
   openBookFormModal = (e) => {
@@ -44,7 +59,7 @@ class BestBooks extends React.Component {
     this.postBook(newBook);
   }
 
-  postBook = async ( newBook ) => {
+  postBook = async (newBook) => {
     try {
       let url = `${process.env.REACT_APP_SERVER}/books`;
       let createdBook = await axios.post(url, newBook);
@@ -52,14 +67,13 @@ class BestBooks extends React.Component {
       this.setState({
         books: [...this.state.books, createdBook.data]
       })
-    } catch(error){
+    } catch (error) {
       console.log('error msg: ', error.response.data)
     }
   }
 
   deleteBook = async (id) => {
     try {
-      console.log('sd');
       let url = `${process.env.REACT_APP_SERVER}/books/${id}`;
       await axios.delete(url);
       let updatedBooks = this.state.books.filter(book => book._id !== id);
@@ -71,7 +85,23 @@ class BestBooks extends React.Component {
     }
   }
 
-
+  updateBook = async (book) => {
+    try {
+      let updatedBookFromDB = await axios.put(`${process.env.REACT_APP_SERVER}/books/${book._id}`, book);
+      let updatedBooks = this.state.books.map(i => {
+        return i._id === book._id
+          ? updatedBookFromDB.data
+          : i;
+      });
+      this.setState({
+        showUpdateForm: true,
+        books: updatedBooks
+      })
+      
+    } catch (error) {
+      console.log('error msg: ', error.response.data)
+    }
+  }
 
   getBooks = async () => {
     try {
@@ -107,9 +137,10 @@ class BestBooks extends React.Component {
               <h3>{i.title}</h3>
               <p>{i.description}</p>
               <p>Status: {i.status ? 'In stock' : 'Out of stock'}</p>
-              <Button type='submit'variant="outline-dark" onClick={()=> this.deleteBook(i._id)}>Delete this book</Button>
+              <Button variant="outline-dark" onClick={() => this.deleteBook(i._id)}>Delete this book</Button>
+              <Button variant="outline-warning" onClick={() => this.updateBook(i)}>Update this book</Button>
             </Carousel.Caption>
-            
+
           </Carousel.Item>
         )
       }
@@ -134,12 +165,21 @@ class BestBooks extends React.Component {
 
         <Button variant="outline-success" onClick={this.openBookFormModal}>Add a book</Button>
         {this.state.showForm ?
-        <BookFromModal 
-        submitBook={this.submitBook}
-        closeBookFormModal={this.closeBookFormModal}
-        openBookFormModal={this.openBookFormModal}
-        /> :
-        <></>
+          <BookFromModal
+            submitBook={this.submitBook}
+            closeBookFormModal={this.closeBookFormModal}
+            openBookFormModal={this.openBookFormModal}
+          /> :
+          <></>
+        }
+        {this.state.showUpdateForm ?
+          <UpdateBookModal
+            updateBook={this.updateBook}
+            books={this.state.books}
+            updateOpenBookFormModal={this.updateOpenBookFormModal}
+            updateCloseBookFormModal={this.updateCloseBookFormModal}
+          /> :
+          <></>
         }
       </>
 

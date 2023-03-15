@@ -94,6 +94,17 @@ Finish time: 1545_
 
 Actual time needed to complete: 120min
 
+## lab 13
+
+Name of feature: Update
+
+Estimate of time needed to complete: 120min
+
+Start time: 1245
+
+Finish time: 1545_
+
+Actual time needed to complete: 180min
 
 ## Professional Pairing Practice
 

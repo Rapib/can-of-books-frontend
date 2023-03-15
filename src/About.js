@@ -10,7 +10,7 @@ class Profile extends Component {
     <h2>Thomas Lau</h2>
     <p>Full stack developer</p>
     <h2>Kirill Lesnykh</h2>
-    <p>A better Full stack developer</p>
+    <p>Full stack developer</p>
     </>
     )
   }
