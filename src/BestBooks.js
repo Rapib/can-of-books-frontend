@@ -114,10 +114,10 @@ class BestBooks extends React.Component {
 
   getBooks = async () => {
 
-
-    try {
+    
+    // try {
       if (this.props.auth0.isAuthenticated) {
-
+        console.log('getbooks function is good');
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
         console.log(jwt);
@@ -136,20 +136,21 @@ class BestBooks extends React.Component {
           books: results.data,
           noBook: false,
         })
-      }
-    } catch (error) {
-      console.log('there is an error: ', error.response.data)
-    }
+      } else{ console.log('getbooks function error'); }
+    // } catch (error) {
+    //   console.log('there is an error: ', error.response.data)
+    // }
   }
 
 
   componentDidMount() {
     this.getBooks();
+    console.log('componentDidMount ok');
   }
 
 
   render() {
-
+    console.log('bestbook page is working');
     let booksToCarousel = this.state.books.map(
       i => {
         return (

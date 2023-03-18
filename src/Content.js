@@ -4,12 +4,16 @@ import BestBooks from './BestBooks';
 import Welcome from './Welcome';
 
 class Content extends React.Component {
+
   render() {
+    console.log('content page is working');
     return (
       <>
       {this.props.auth0.isAuthenticated ?
+
         <BestBooks />
         :
+
         <Welcome />}
       </>
     )
