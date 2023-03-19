@@ -14,12 +14,13 @@ class Header extends React.Component {
         <Navbar.Brand>Can of Books</Navbar.Brand>
         <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         <NavItem><Link to="/about" className="nav-link">About Us</Link></NavItem>
+        {this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>}
         {
                 this.props.auth0.isAuthenticated && <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem>}
       </Navbar>
-      <LogoutButton/>
-      <LoginButton/>
-        {/* {this.props.auth0.isAuthenticated ? <LogoutButton/> : <LoginButton/>} */}
+      {/* <LogoutButton/>
+      <LoginButton/> */}
+        
     </>
     )
   }

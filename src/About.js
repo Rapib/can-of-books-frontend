@@ -1,17 +1,20 @@
 import { Component } from "react";
+import ListGroup from 'react-bootstrap/ListGroup'
 
 class Profile extends Component {
 
   render() {
-    
+
     return (
-    <>
-    <h1>About us:</h1>
-    <h2>Thomas Lau</h2>
-    <p>Full stack developer</p>
-    <h2>Kirill Lesnykh</h2>
-    <p>Full stack developer</p>
-    </>
+      
+        <ListGroup>
+          <ListGroup.Item variant="warning">About us:</ListGroup.Item>
+          <ListGroup.Item variant="info">Thomas Lau</ListGroup.Item>
+          <ListGroup.Item>Full stack developer</ListGroup.Item>
+          <ListGroup.Item variant="info">Kirill Lesnykh</ListGroup.Item>
+          <ListGroup.Item>Full stack developer</ListGroup.Item>
+        </ListGroup>
+
     )
   }
 };
