@@ -4,7 +4,7 @@ import BookFromModal from './BookFormModal';
 import UpdateBookModal from './UpdateBookModal';
 import './BestBooks.css'
 import { Carousel, Button } from 'react-bootstrap';
-
+import { withAuth0 } from "@auth0/auth0-react";
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -113,25 +113,44 @@ class BestBooks extends React.Component {
   }
 
   getBooks = async () => {
-    try {
-      let results = await axios.get(`${process.env.REACT_APP_SERVER}/books`);
-      this.setState({
-        books: results.data,
-        noBook: false,
-      })
-    } catch (error) {
-      console.log('there is an error: ', error.response.data)
-    }
+
+    
+    // try {
+      if (this.props.auth0.isAuthenticated) {
+        console.log('getbooks function is good');
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+        console.log(jwt);
+        const config = {
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: '/books',
+          headers: {
+            "Authorization": `Bearer ${jwt}`
+          }
+        }
+        let results = await axios(config);
+        console.log(results.data);
+        // let results = await axios.get(`${process.env.REACT_APP_SERVER}/books`);
+        this.setState({
+          books: results.data,
+          noBook: false,
+        })
+      } else{ console.log('getbooks function error'); }
+    // } catch (error) {
+    //   console.log('there is an error: ', error.response.data)
+    // }
   }
 
 
   componentDidMount() {
     this.getBooks();
+    console.log('componentDidMount ok');
   }
 
 
   render() {
-
+    console.log('bestbook page is working');
     let booksToCarousel = this.state.books.map(
       i => {
         return (
@@ -150,7 +169,7 @@ class BestBooks extends React.Component {
               <p>Status: {i.status ? 'In stock' : 'Out of stock'}</p>
               <Button variant="outline-dark" onClick={() => this.deleteBook(i._id)}>Delete this book</Button>
               <Button variant="outline-warning" onClick={() => this.openUpdateModal(i)}>Update this book</Button>
-              
+
             </Carousel.Caption>
 
           </Carousel.Item>
@@ -185,18 +204,18 @@ class BestBooks extends React.Component {
           <></>
         }
         {this.state.showUpdateForm ?
-                <UpdateBookModal
-                  updateBook={this.updateBook}
-                  book={this.state.currentBook}
-                  updateOpenBookFormModal={this.updateOpenBookFormModal}
-                  updateCloseBookFormModal={this.updateCloseBookFormModal}
-                /> :
-                <></>
-              }
+          <UpdateBookModal
+            updateBook={this.updateBook}
+            book={this.state.currentBook}
+            updateOpenBookFormModal={this.updateOpenBookFormModal}
+            updateCloseBookFormModal={this.updateCloseBookFormModal}
+          /> :
+          <></>
+        }
       </>
 
     )
   }
 }
 
-export default BestBooks;
+export default withAuth0(BestBooks);

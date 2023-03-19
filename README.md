@@ -26,7 +26,7 @@ Live (https://booksbooks.netlify.app/)
 03-13-2023 1645 - 3. Book Component
 03-14-2023 1445 - 1. Create
 03-14-2023 1445 - 2. Delete
-
+03-18-2023 1830 - auth0
 ## Estimates
 <!-- See below -->
 
@@ -105,6 +105,18 @@ Start time: 1245
 Finish time: 1445_
 
 Actual time needed to complete: 120min
+
+## lab 15
+
+Name of feature: auth0
+
+Estimate of time needed to complete: 300min
+
+Start time: 0800
+
+Finish time: 1830
+
+Actual time needed to complete: 10hrs
 
 ## Professional Pairing Practice
 
