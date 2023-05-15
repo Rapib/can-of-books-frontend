@@ -8,5 +8,7 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 
 ## Link
 Live: <https://booksbooks.netlify.app/>
+
 Frontend: <https://github.com/Rapib/can-of-books-frontend>
+
 Backend: <https://github.com/klesnykh/can-of-books-backend>
